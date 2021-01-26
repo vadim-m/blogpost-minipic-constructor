@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minipic constructor</title>
+    
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/favicon/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <h1>Make magic:</h1>
+        <div class="maincontent">
+          <div class="scheme-container">
+            <div class="scheme" id="scheme">
+              <div class="scheme__title scheme__item">Vue</div>
+              <div class="scheme__info scheme__item">
+                <div class="scheme__info-wrap">
+                  <div class="scheme__desc">Нажать кнопку</div>
+                  <div class="scheme__desc">Нажать кнопку</div>
+                  <div class="scheme__desc">Нажать кнопку</div>
+                  <div class="scheme__desc">Нажать кнопку</div>
+                  <div class="scheme__desc">Нажать кнопку</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="buttons">
+            <div class="buttons__container">
+              <div class="buttons__text">Добавить систему:</div>
+              <div class="buttons__add">
+                <button onclick="add('ot')" class="btn">Система ЦО</button>
+                <button onclick="add('ot-tupik')" class="btn">
+                  Система ЦО (один поток)
+                </button>
+                <button onclick="add('gvs')" class="btn">Система ГВС</button>
+                <button onclick="add('gvs-tupik')" class="btn">
+                  Система ГВС (тупик)
+                </button>
+                <button onclick="add('ov')" class="btn">Система ОВ</button>
+                <button onclick="add('ov-tupik')" class="btn">
+                  Система ОВ (один поток)
+                </button>
+                <button onclick="add('ts')" class="btn">Теплосеть</button>
+                <button onclick="add('ts-pod')" class="btn">
+                  Теплосеть с подпиткой
+                </button>
+                <button onclick="add('up')" class="btn">
+                  Подача (без подписи)
+                </button>
+                <button onclick="add('down')" class="btn">
+                  Обратка (без подписи)
+                </button>
+              </div>
+            </div>
+            <div class="buttons__controls">
+              <button onclick="deleteSchemes()" class="reset-btn">
+                Очистить схему
+              </button>
+              <button onclick="doCapture()" id="select" class="btn">
+                Подтвердить
+              </button>
+              <button disabled id="save-btn" class="btn save-btn">
+                Сохранить
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="instruction">
+          <h2 class="instruction__title">Инструкция</h2>
+          <ol class="instruction_list">
+            <li class="instruction__item">
+              Cобрать схему, добавляя нужную систему.
+            </li>
+            <li class="instruction__item">Нажать кнопку <b>Подтвердить</b>.</li>
+            <li class="instruction__item">
+              Нажать кнопку <b>Сохранить схему</b>.
+            </li>
+            <li class="instruction__item">
+              Если нужна новая схема нажать кнопку <b>Очистить схему</b>. Начать
+              с пункта №1.
+            </li>
+          </ol>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="footer__info container">
+          Разработал
+          <a
+            class="footer__info__link"
+            href="https://github.com/vadim-m"
+            target="_blank"
+          >
+            Vadim Monastyrskiy</a
+          >. Скриншоты при помощи библиотеки
+          <a
+            class="footer__info__link"
+            href="https://html2canvas.hertzen.com/"
+            target="_blank"
+            >html2canvas</a
+          >.
+        </div>
+      </footer>
+    </div>
+    <script src="./assets/scripts/html2canvas.js"></script>
+    <script src="./assets/scripts/app.js"></script>
+    <script></script>
+  </body>
+</html>
