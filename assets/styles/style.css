@@ -280,6 +280,12 @@ img {
   border-right: dashed 1px red;;
 }
 
+.background.active .section__content {
+  max-height: 500px;
+  opacity: 1;
+  transition: max-height 0.8s linear;
+}
+
 /* Стили для появляющейся ссылки */
 #download__link {
   display: block;

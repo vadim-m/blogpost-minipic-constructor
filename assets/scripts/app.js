@@ -13,9 +13,9 @@ let openButtons = document.querySelectorAll('.section__open-btn');
 // вешаем на эти стрелки слушатели событий, чтоб открыть нужную секцию
 openButtons.forEach((btn) => {
   btn.addEventListener('click', (e) => {
-    const curretnSection = e.target.parentNode.parentNode;
+    const currentSection = e.target.parentNode.parentNode;
 
-    curretnSection.classList.toggle('active');;
+    currentSection.classList.toggle('active');;
   });
 
 });
@@ -29,7 +29,7 @@ const changeLayout = () => {
 /* РАБОТА ГЛАВНОГО СКРИПТА html2canvas */
 /* ------------------------------------ */
 
-// При нажатии на reset-btn - сброс схемы
+// При нажатии на reset-btn - сброс схемы и кнопки
 const cleanScheme = () => {
   scheme.innerHTML = `<div class="scheme__title scheme__item">
                       Title</div>
@@ -43,10 +43,21 @@ const cleanScheme = () => {
   resetSaveBtn();
 };
 
+// сброс кнопки SaveBtn к начальному состоянию
 const resetSaveBtn = () => {
   saveBtn.disabled = true;
   saveBtn.innerHTML = "";
   saveBtn.innerText = "Save";
+};
+
+// закрытие всех секций, чтобы убрать баг с отступом на картинке
+// слева из-за полосы прокрутки
+const closeAllSections = () => {
+  openButtons.forEach((btn) => {
+    const currentSection = btn.parentNode.parentNode;
+
+    currentSection.classList.remove('active');;
+  })
 };
 
 // html2canvas => any div as image file
@@ -59,7 +70,7 @@ function doCapture() {
     let a = document.createElement("a");
     a.textContent = "Save";
     a.setAttribute("id", "download__link");
-    a.download = "схема_уутэ_" + Date.now() + ".webp";
+    a.download = "blog_pic" + Date.now() + ".webp";
     a.href = canvasdata;
 
     // Делаем кнопку сохранить активной и добавляем в нее ссылку
@@ -73,6 +84,12 @@ function doCapture() {
       cleanScheme();
     });
   });
+};
+
+// При нажатии на кнопку Apply вызываем эту функцию. Сохраняем картинку
+const saveScheme = () => {
+  closeAllSections();
+  doCapture();
 };
 
 
