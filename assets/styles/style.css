@@ -270,6 +270,12 @@ img {
   flex-basis: 20%;
 }
 
+.layout__btn:hover {
+  color: #d10000;
+  background-color: #e7e7e5;
+}
+
+
 .layout__btn:not(:last-child) {
   border-right: dashed 1px red;;
 }
