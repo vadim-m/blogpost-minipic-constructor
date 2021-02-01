@@ -1,117 +1,128 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Minipic constructor</title>
-    
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="./assets/favicon/favicon-32x32.png"
-    />
 
-    <link rel="stylesheet" href="./assets/styles/style.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class="container">
-        <h1>Make magic:</h1>
-        <div class="maincontent">
-          <div class="scheme-container">
-            <div class="scheme" id="scheme">
-              <div class="scheme__title scheme__item">Vue</div>
-              <div class="scheme__info scheme__item">
-                <div class="scheme__info-wrap">
-                  <div class="scheme__desc">Нажать кнопку</div>
-                  <div class="scheme__desc">Нажать кнопку</div>
-                  <div class="scheme__desc">Нажать кнопку</div>
-                  <div class="scheme__desc">Нажать кнопку</div>
-                  <div class="scheme__desc">Нажать кнопку</div>
-                </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create </title>
+
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-32x32.png" />
+
+  <link rel="stylesheet" href="./assets/styles/style.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="constructor container">
+      <div class="preview">
+        <div class="preview__pic">
+          <div class="scheme column" id="scheme">
+            <div class="scheme__title scheme__item">Vue</div>
+            <div class="scheme__info scheme__item">
+              <div class="scheme__info-wrap">
+                <div class="scheme__desc">Нажать кнопку</div>
+                <div class="scheme__desc">Нажать кнопку</div>
+                <div class="scheme__desc">Нажать кнопку</div>
               </div>
-            </div>
-          </div>
-          <div class="buttons">
-            <div class="buttons__container">
-              <div class="buttons__text">Добавить систему:</div>
-              <div class="buttons__add">
-                <button onclick="add('ot')" class="btn">Система ЦО</button>
-                <button onclick="add('ot-tupik')" class="btn">
-                  Система ЦО (один поток)
-                </button>
-                <button onclick="add('gvs')" class="btn">Система ГВС</button>
-                <button onclick="add('gvs-tupik')" class="btn">
-                  Система ГВС (тупик)
-                </button>
-                <button onclick="add('ov')" class="btn">Система ОВ</button>
-                <button onclick="add('ov-tupik')" class="btn">
-                  Система ОВ (один поток)
-                </button>
-                <button onclick="add('ts')" class="btn">Теплосеть</button>
-                <button onclick="add('ts-pod')" class="btn">
-                  Теплосеть с подпиткой
-                </button>
-                <button onclick="add('up')" class="btn">
-                  Подача (без подписи)
-                </button>
-                <button onclick="add('down')" class="btn">
-                  Обратка (без подписи)
-                </button>
-              </div>
-            </div>
-            <div class="buttons__controls">
-              <button onclick="deleteSchemes()" class="reset-btn">
-                Очистить схему
-              </button>
-              <button onclick="doCapture()" id="select" class="btn">
-                Подтвердить
-              </button>
-              <button disabled id="save-btn" class="btn save-btn">
-                Сохранить
-              </button>
             </div>
           </div>
         </div>
-        <div class="instruction">
-          <h2 class="instruction__title">Инструкция</h2>
-          <ol class="instruction_list">
-            <li class="instruction__item">
-              Cобрать схему, добавляя нужную систему.
-            </li>
-            <li class="instruction__item">Нажать кнопку <b>Подтвердить</b>.</li>
-            <li class="instruction__item">
-              Нажать кнопку <b>Сохранить схему</b>.
-            </li>
-            <li class="instruction__item">
-              Если нужна новая схема нажать кнопку <b>Очистить схему</b>. Начать
-              с пункта №1.
-            </li>
+        <div class="preview__buttons">
+          <ol class="preview__list">
+            <li class="preview__list-item">Create</li>
+            <li class="preview__list-item">Close all editors (canvas bug)</li>
+            <li class="preview__list-item">Click "Apply button"</li>
+            <li class="preview__list-item">Repeat</li>
           </ol>
+          <div class="scheme__buttons">
+            <button onclick="deleteSchemes()" class="reset-btn btn">
+              Reset
+            </button>
+            <button onclick="doCapture()" class="select-btn btn">
+              Apply
+            </button>
+            <button disabled id="save-btn" class="btn save-btn">
+              Save
+            </button>
+          </div>
         </div>
       </div>
-      <footer class="footer">
-        <div class="footer__info container">
-          Разработал
-          <a
-            class="footer__info__link"
-            href="https://github.com/vadim-m"
-            target="_blank"
-          >
-            Vadim Monastyrskiy</a
-          >. Скриншоты при помощи библиотеки
-          <a
-            class="footer__info__link"
-            href="https://html2canvas.hertzen.com/"
-            target="_blank"
-            >html2canvas</a
-          >.
-        </div>
-      </footer>
-    </div>
-    <script src="./assets/scripts/html2canvas.js"></script>
-    <script src="./assets/scripts/app.js"></script>
-    <script></script>
-  </body>
+      
+      <div class="sections">
+
+        <section class="layout section" id="layout">
+          <div class="layout__header section__header">
+            <h1 class="layout__heading section__heading">Layout Editor</h1>
+            <div class="layout__open-btn section__open-btn"></div>
+          </div>
+
+          <div class="layout__content section__content">
+            <div class="layout__control" onclick="changeLayout()">
+              <span>ROW / COLUMN</span>
+            </div>
+            <div class="layout__control layout__title">
+              <div class="layout__btn">Title</div>
+              <div class="layout__btn layout__btn--up">&#8679</div>
+              <div class="layout__btn layout__btn--down">&#8681</div>
+              <div class="layout__btn layout__btn--left">&#8678</div>
+              <div class="layout__btn layout__btn--right">&#8680</div>
+            </div>
+
+            <div class="layout__control layout__desc">
+              <div class="layout__btn">Desc.</div>
+              <div class="layout__btn layout__btn--up">&#8679</div>
+              <div class="layout__btn layout__btn--down">&#8681</div>
+              <div class="layout__btn layout__btn--left">&#8678</div>
+              <div class="layout__btn layout__btn--right">&#8680</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="layout section" id="background">
+          <div class="layout__header section__header">
+            <h1 class="layout__heading section__heading">Background Editor</h1>
+            <div class="layout__open-btn section__open-btn"></div>
+          </div>
+          <div class="layout__content section__content">Lorem Ipsum - это текст-"рыба", часто используемый в печати и
+            вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время
+            некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для
+            распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и
+            перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с
+            образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus
+            PageMaker, в шаблонах которых используется Lorem Ipsum.</div>
+        </section>
+
+        <section class="layout section" id="text">
+
+          <div class="layout__header section__header">
+            <h1 class="layout__heading section__heading">Text Editor</h1>
+            <div class="layout__open-btn section__open-btn"></div>
+          </div>
+
+          <div class="layout__content section__content">
+            <div class="buttons__container">
+              <div class="buttons__text">Добавить систему:</div>
+            </div>
+            <footer class="footer">
+              <div class="footer__info container">
+                Разработал
+                <a class="footer__info__link" href="https://github.com/vadim-m" target="_blank">
+                  Vadim Monastyrskiy</a>. Скриншоты при помощи библиотеки
+                <a class="footer__info__link" href="https://html2canvas.hertzen.com/" target="_blank">html2canvas</a>.
+              </div>
+            </footer>
+          </div>
+        </section>
+
+      
+
+      </div>
+    </main>
+    
+  </div>
+  <script src="./assets/scripts/html2canvas.js"></script>
+  <script src="./assets/scripts/app.js"></script>
+  <script></script>
+</body>
+
 </html>

@@ -1,23 +1,69 @@
 const scheme = document.getElementById("scheme");
 const saveBtn = document.getElementById("save-btn");
 
+// псевдомассив NodeList со списком всех кнопок-стрелок секции
+let openButtons = document.querySelectorAll('.section__open-btn');
+
+// вешаем на эти стрелки слушатели событий, чтоб открыть нужную секцию
+openButtons.forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    const curretnSection = e.target.parentNode.parentNode;
+
+    curretnSection.classList.toggle('active');;
+  });
+
+});
+
+// функция по переключению класса, чтобы изменить layout картинки
+const changeLayout = () => {
+  scheme.classList.toggle('column');
+}
+
+
+
+
+
+
+
+
+
+
+
+
 // reset btn
 const deleteSchemes = () => {
   scheme.innerHTML = "";
   saveBtn.disabled = true;
   saveBtn.innerHTML = "";
-  saveBtn.innerText = "Cохранить";
+  saveBtn.innerText = "Save";
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // html2canvas => any div as image file
 function doCapture() {
   html2canvas(document.getElementById("scheme")).then(function (canvas) {
+    document.body.style.overflowY = "hidden";
     canvasdata = canvas.toDataURL("image/webp", 1);
     let a = document.createElement("a");
-    a.textContent = "Cохранить схему";
+    a.textContent = "Save";
     a.setAttribute("id", "download__link");
     a.download = "схема_уутэ_" + Date.now() + ".webp";
     a.href = canvasdata;
+    console.log(a);
 
     // Делаем кнопку сохранить активной и добавляем в нее ссылку
     saveBtn.disabled = false;
@@ -31,6 +77,17 @@ function doCapture() {
     });
   });
 }
+
+
+
+
+
+
+
+
+
+
+
 
 // buttons onclick function
 const add = (sym) => {
