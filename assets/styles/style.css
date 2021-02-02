@@ -95,13 +95,10 @@ img {
 
 .scheme.column .scheme__title {
   line-height: 1.4;
-  padding-top: 10px;
 }
 
 .scheme.column .scheme__info {
   border-left: none;
-
-  padding-bottom: 10px;
 }
 
 .scheme__item {
@@ -217,6 +214,19 @@ img {
 }
 
 .section__open-btn {
+  width: 100px;
+  height: 34px;
+ 
+  position: relative;
+}
+
+.section__open-btn::after {
+  content: '';
+  position: absolute;
+    
+  display: block;
+  margin:  10px 5px 10px 70px;
+
   width: 0;
   height: 0;
   border-style: solid;
@@ -227,7 +237,7 @@ img {
   transition: all 0.2s linear;
 }
 
-.section.active .section__open-btn {
+.section.active .section__open-btn::after {
   transform: rotate(-180deg);
 }
 

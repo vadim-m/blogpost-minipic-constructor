@@ -1,29 +1,118 @@
 // Элементы со страницы
 /* --------------*/
+const previewTitle = document.getElementById("title");
+const previewText = document.getElementById("text");
 const scheme = document.getElementById("scheme");
 const saveBtn = document.getElementById("save-btn");
+
+// псевдомассив NodeList со списком всех кнопок-стрелок секции
+let openButtons = document.querySelectorAll('.section__open-btn');
+
+// вешаем на эти стрелки слушатели,чтоб открыть нужную секцию при клике
+openButtons.forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    const currentSection = e.target.parentNode.parentNode;
+
+    currentSection.classList.toggle('active');
+  });
+});
 
 
 /* СЕКЦИЯ LAYOUT */
 /* --------------*/
 
-// псевдомассив NodeList со списком всех кнопок-стрелок секции
-let openButtons = document.querySelectorAll('.section__open-btn');
-
-// вешаем на эти стрелки слушатели событий, чтоб открыть нужную секцию
-openButtons.forEach((btn) => {
-  btn.addEventListener('click', (e) => {
-    const currentSection = e.target.parentNode.parentNode;
-
-    currentSection.classList.toggle('active');;
-  });
-
-});
-
 // функция по переключению класса, чтобы изменить layout картинки
 const changeLayout = () => {
   scheme.classList.toggle('column');
 };
+
+// псевдомассив NodeList со списком всех кнопок-управления секции layout
+let layoutButtons = document.querySelectorAll('.layout__btn');
+
+// вешаем на эти кнопки слушатели,чтоб вызвать функцию их обработки
+layoutButtons.forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+
+    // конец строки класса от модификатора кнопки layout__btn--u 
+    // это направление(либо сброс) для увелечения отступа нужного элемента.  
+    const direction = btn.className.slice(-1);
+    
+    // получаем целевой элемент для смещения
+    const target = checkTarget(btn);
+
+    // вызываем функцию по изменению отступов
+    changePaddings(target, direction);
+  });
+});
+
+// проверяем какой элемент нам нужно подвинуть
+const checkTarget = (clickedBtn) => {
+
+  if (clickedBtn.parentNode.classList.contains('layout__title')) {
+    targetElement = previewTitle;
+  } else if (clickedBtn.parentNode.classList.contains('layout__desc')) {
+    targetElement = previewText;
+  }
+
+  return targetElement;
+};
+
+// объявляю массивы с отступами Заголовка и Тезисами 
+let paddingsTitle = [0, 0, 0, 0];
+let paddingsText = [0, 0, 0, 0];
+
+// функция изменения массивов padding
+const changePaddings = (target, direction) => {
+  // Задаем шаг,с каждым нажатием увеличиваю отступ на 10px
+  const step = 10;
+  // внутренний массив для работы функции
+  let paddings;
+
+  if (target == previewTitle) {
+    paddings = paddingsTitle;
+  } else if (target == previewText) {
+    paddings = paddingsText;
+  }
+
+  switch (direction) {
+    case 'd':
+      paddings[0] = paddings[0] + step;
+      break;
+    case 'u':
+      paddings[2] = paddings[2] + step;
+      break;
+    case 'l':
+      paddings[3] = paddings[3] + step;
+      break;
+    case 'r':
+      paddings[1] = paddings[1] + step;
+      break;
+    case '0':
+      paddings = resetPaddings(target);
+      break;
+  }
+
+  // и после всех изменений вызываем перемещение нужного элемента
+  moveTarget(target, paddings);
+};
+
+// сбрасываем padding у нужного элемента, а также возвращаем нулевой массив в switch
+const resetPaddings = (target) => {
+  if (target == previewTitle) {
+    paddingsTitle = [0, 0 , 0, 0];
+  } else if (target == previewText) {
+    paddingsText = [0, 0 , 0, 0];
+  }
+  return [0,0,0,0];
+}
+
+// функция по смещению элемента. Подставляем значения из массива паддингов нужному эл-ту
+const moveTarget = (target, paddings) => {
+  target.style.paddingTop = paddings[0] + 'px';
+  target.style.paddingBottom = paddings[2] + 'px';
+  target.style.paddingLeft = paddings[1] + 'px';
+  target.style.paddingRight = paddings[3] + 'px';
+}
 
 
 /* РАБОТА ГЛАВНОГО СКРИПТА html2canvas */

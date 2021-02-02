@@ -17,9 +17,9 @@
       <div class="preview">
         <div class="preview__pic">
           <div class="scheme column" id="scheme">
-            <div class="scheme__title scheme__item">Title</div>
+            <div class="scheme__title scheme__item" id="title">Title</div>
             <div class="scheme__info scheme__item">
-              <div class="scheme__info-wrap">
+              <div class="scheme__info-wrap" id="text">
                 <div class="scheme__desc">thesis1</div>
                 <div class="scheme__desc">thesis2</div>
                 <div class="scheme__desc">thesis3</div>
@@ -31,7 +31,7 @@
           <ol class="preview__list">
             <li class="preview__list-item">Create</li>
             <li class="preview__list-item">Close all editors (canvas bug)</li>
-            <li class="preview__list-item">Click "Apply button"</li>
+            <li class="preview__list-item">Click "Apply" button</li>
             <li class="preview__list-item">Repeat</li>
           </ol>
           <div class="scheme__buttons">
@@ -60,20 +60,20 @@
             <div class="layout__control" onclick="changeLayout()">
               <span>ROW / COLUMN</span>
             </div>
-            <div class="layout__control layout__title">
-              <div class="layout__btn">Title</div>
-              <div class="layout__btn layout__btn--up">&#8679</div>
-              <div class="layout__btn layout__btn--down">&#8681</div>
-              <div class="layout__btn layout__btn--left">&#8678</div>
-              <div class="layout__btn layout__btn--right">&#8680</div>
+            <div class="layout__control layout__title" id='title-control'>
+              <div class="layout__btn layout__btn--0">Title</div>
+              <div class="layout__btn layout__btn--u">&#8679</div>
+              <div class="layout__btn layout__btn--d">&#8681</div>
+              <div class="layout__btn layout__btn--l">&#8678</div>
+              <div class="layout__btn layout__btn--r">&#8680</div>
             </div>
 
-            <div class="layout__control layout__desc">
-              <div class="layout__btn">Desc.</div>
-              <div class="layout__btn layout__btn--up">&#8679</div>
-              <div class="layout__btn layout__btn--down">&#8681</div>
-              <div class="layout__btn layout__btn--left">&#8678</div>
-              <div class="layout__btn layout__btn--right">&#8680</div>
+            <div class="layout__control layout__desc" id='thesis-control'>
+              <div class="layout__btn layout__btn--0">Desc.</div>
+              <div class="layout__btn layout__btn--u">&#8679</div>
+              <div class="layout__btn layout__btn--d">&#8681</div>
+              <div class="layout__btn layout__btn--l">&#8678</div>
+              <div class="layout__btn layout__btn--r">&#8680</div>
             </div>
           </div>
         </section>
