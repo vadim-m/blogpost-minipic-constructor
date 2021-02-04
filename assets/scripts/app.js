@@ -1,7 +1,7 @@
-// Элементы со страницы
+/* Элементы со страницы */
 /* --------------*/
-const previewTitle = document.getElementById("title");
-const previewText = document.getElementById("text");
+let previewTitle = document.getElementById("title");
+let previewText = document.getElementById("text");
 const scheme = document.getElementById("scheme");
 const saveBtn = document.getElementById("save-btn");
 
@@ -57,7 +57,8 @@ const checkTarget = (clickedBtn) => {
   return targetElement;
 };
 
-// объявляю массивы с отступами Заголовка и Тезисами 
+// объявляю массивы с нулевыми отступами Заголовка и Тезисов
+// padding[top, r, bot, l] 
 let paddingsTitle = [0, 0, 0, 0];
 let paddingsText = [0, 0, 0, 0];
 
@@ -75,19 +76,19 @@ const changePaddings = (target, direction) => {
   }
 
   switch (direction) {
-    case 'd':
+    case 'd': // кнопка вниз
       paddings[0] = paddings[0] + step;
       break;
-    case 'u':
+    case 'u': // кнопка вверх
       paddings[2] = paddings[2] + step;
       break;
-    case 'l':
-      paddings[3] = paddings[3] + step;
-      break;
-    case 'r':
+    case 'l': // кнопка влево
       paddings[1] = paddings[1] + step;
       break;
-    case '0':
+    case 'r': // кнопка вправо
+      paddings[3] = paddings[3] + step;
+      break;
+    case '0': // кнопка reset
       paddings = resetPaddings(target);
       break;
   }
@@ -96,7 +97,7 @@ const changePaddings = (target, direction) => {
   moveTarget(target, paddings);
 };
 
-// сбрасываем padding у нужного элемента, а также возвращаем нулевой массив в switch
+// сбрасываем padding у нужного элемента, а также возвращаем массив обнуленных паддингов в switch
 const resetPaddings = (target) => {
   if (target == previewTitle) {
     paddingsTitle = [0, 0 , 0, 0];
@@ -109,30 +110,43 @@ const resetPaddings = (target) => {
 // функция по смещению элемента. Подставляем значения из массива паддингов нужному эл-ту
 const moveTarget = (target, paddings) => {
   target.style.paddingTop = paddings[0] + 'px';
+  target.style.paddingRight = paddings[1] + 'px';
   target.style.paddingBottom = paddings[2] + 'px';
-  target.style.paddingLeft = paddings[1] + 'px';
-  target.style.paddingRight = paddings[3] + 'px';
+  target.style.paddingLeft = paddings[3] + 'px';
 }
 
-
-/* РАБОТА ГЛАВНОГО СКРИПТА html2canvas */
+/* КНОПКИ ДЛЯ СОХРАНЕНИЯ/СБРОСА ПРЕВЬЮ */
 /* ------------------------------------ */
 
 // При нажатии на reset-btn - сброс схемы и кнопки
 const cleanScheme = () => {
-  scheme.innerHTML = `<div class="scheme__title scheme__item">
-                      Title</div>
+  scheme.innerHTML = `<div class="scheme__title scheme__item"
+                      id="title">Title</div>
                       <div class="scheme__info scheme__item">
-                        <div class="scheme__info-wrap">
+                        <div class="scheme__info-wrap" id="text">
                           <div class="scheme__desc">thesis1</div>
                           <div class="scheme__desc">thesis2</div>
                           <div class="scheme__desc">thesis3</div>
                         </div>
                       </div>`;
+  // завоно сохраняем элементы в переменные                    
+  previewTitle = document.getElementById("title");
+  previewText = document.getElementById("text");
+  // обнуляем паддинги у Заголовка и Тезисов
+  resetPaddings(previewTitle);
+  resetPaddings(previewText);
+  // сброс кнопки SaveBtn
   resetSaveBtn();
 };
 
-// сброс кнопки SaveBtn к начальному состоянию
+// При нажатии на кнопку Apply вызываем эту функцию. Сохраняем картинку
+const saveScheme = () => {
+  closeAllSections();
+  doCapture();
+};
+
+
+// сброс кнопки save-btn к начальному состоянию
 const resetSaveBtn = () => {
   saveBtn.disabled = true;
   saveBtn.innerHTML = "";
@@ -148,6 +162,9 @@ const closeAllSections = () => {
     currentSection.classList.remove('active');;
   })
 };
+
+/* РАБОТА ГЛАВНОГО СКРИПТА html2canvas */
+/* ------------------------------------ */
 
 // html2canvas => any div as image file
 function doCapture() {
@@ -174,15 +191,6 @@ function doCapture() {
     });
   });
 };
-
-// При нажатии на кнопку Apply вызываем эту функцию. Сохраняем картинку
-const saveScheme = () => {
-  closeAllSections();
-  doCapture();
-};
-
-
-
 
 
 

@@ -160,36 +160,36 @@ img {
   box-shadow: 0px 5px 6px 0px rgb(34 60 80 / 30%);
 }
 
-.reset-btn {
+.btn--reset {
   display: block;
   color: #d10000;
   border: 1px dashed #d10000;
   background-color: rgb(255, 255, 255);
 }
 
-.reset-btn:hover {
+.btn--reset:hover {
   background-color: #d10000;
   color: white;
   transition: background-color 500ms linear;
 }
 
-.save-btn {
+.btn--save {
   background-color: #c0edc4;
   color: #333;
   transition: all 400ms linear;
 }
 
-.save-btn:disabled {
+.btn--save:disabled {
   background-color: #ccc;
   color: white;
   cursor: not-allowed;
 }
 
-.save-btn:hover {
+.btn--save:hover {
   box-shadow: 2px 2px 10px 2px rgba(109, 192, 130, 0.58);
 }
 
-.save-btn:disabled:hover {
+.btn--save:disabled:hover {
   box-shadow: none;
 }
 
@@ -265,6 +265,8 @@ img {
 .layout__control {
   display: flex;
   justify-content: center;
+  align-items: center;
+  
   flex-basis: 32%;
   background-color: #fff;
   border: dashed 1px #333;
