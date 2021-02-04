@@ -64,18 +64,24 @@ img {
   display: flex;
 }
 
-.preview__pic {
+.preview__scheme {
   border: 1px solid black;
   padding: 10px;
 }
 
-.preview__buttons {
+.preview__controls {
   width: 100%;
   padding-left: 15px;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.preview__buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* SCHEME  */
@@ -131,12 +137,6 @@ img {
 
   padding: 3px;
   border-bottom: dashed 1px #333;
-}
-
-.scheme__buttons {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
 }
 
 /* BTN  */
@@ -216,16 +216,16 @@ img {
 .section__open-btn {
   width: 100px;
   height: 34px;
- 
+
   position: relative;
 }
 
 .section__open-btn::after {
-  content: '';
+  content: "";
   position: absolute;
-    
+
   display: block;
-  margin:  10px 5px 10px 70px;
+  margin: 10px 5px 10px 70px;
 
   width: 0;
   height: 0;
@@ -266,11 +266,11 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   flex-basis: 32%;
   background-color: #fff;
   border: dashed 1px #333;
-  
+
   color: #333;
   padding: 10px 0;
   text-align: center;
@@ -287,9 +287,8 @@ img {
   background-color: #e7e7e5;
 }
 
-
 .layout__btn:not(:last-child) {
-  border-right: dashed 1px red;;
+  border-right: dashed 1px red;
 }
 
 .background.active .section__content {

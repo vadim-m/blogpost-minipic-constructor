@@ -89,7 +89,8 @@ const changePaddings = (target, direction) => {
       paddings[3] = paddings[3] + step;
       break;
     case '0': // кнопка reset
-      paddings = resetPaddings(target);
+      paddings = [0,0,0,0];
+      resetPaddings(target);
       break;
   }
 
@@ -97,14 +98,13 @@ const changePaddings = (target, direction) => {
   moveTarget(target, paddings);
 };
 
-// сбрасываем padding у нужного элемента, а также возвращаем массив обнуленных паддингов в switch
+// сбрасываем padding у нужного элемента (либо Заголовка, либо Тезисов)
 const resetPaddings = (target) => {
   if (target == previewTitle) {
     paddingsTitle = [0, 0 , 0, 0];
   } else if (target == previewText) {
     paddingsText = [0, 0 , 0, 0];
   }
-  return [0,0,0,0];
 }
 
 // функция по смещению элемента. Подставляем значения из массива паддингов нужному эл-ту
