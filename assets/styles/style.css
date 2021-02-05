@@ -21,6 +21,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #333;
+  background-color: #e7e7e5;
 }
 
 a {
@@ -44,10 +45,9 @@ b {
 }
 
 .wrapper {
-  height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #e7e7e5;
+  
 }
 
 img {
@@ -62,6 +62,7 @@ img {
 /* PREVIEW  */
 .preview {
   display: flex;
+  margin-bottom: 10px;
 }
 
 .preview__scheme {
@@ -127,7 +128,7 @@ img {
   justify-content: center;
   align-items: center;
 
-  border-left: dashed 1px #333;
+  border-left: dashed 2px #333;
 }
 
 .scheme__desc {
@@ -198,8 +199,10 @@ img {
   width: 100%;
   display: flex;
   flex-direction: column;
+}
 
-  margin-top: 20px;
+.section {
+  margin-bottom: 10px;
 }
 
 .section__header {
@@ -243,23 +246,26 @@ img {
 
 .section__content {
   max-height: 0;
-  padding: 10px 0;
 
   overflow: hidden;
   opacity: 0;
   transition: all 0.3s linear;
 }
 
-/* LAYOUT  */
-.layout.active .section__content {
-  max-height: 500px;
-  opacity: 1;
-  transition: max-height 0.8s linear;
+.section.active .section__content {
+  padding-top: 10px;
 }
 
+/* LAYOUT  */
 .layout__content {
   display: flex;
   justify-content: space-between;
+}
+
+.section--layout.active .section__content {
+  max-height: 500px;
+  opacity: 1;
+  transition: max-height 0.8s linear;
 }
 
 .layout__control {
@@ -291,26 +297,108 @@ img {
   border-right: dashed 1px red;
 }
 
-.background.active .section__content {
+/* BACKGROUND  */
+.background__content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.background__item {
+  display: flex;
+  flex-basis: 49%;
+  
+  padding: 10px;
+  border: dashed 1px #333;
+}
+
+.section--background.active .section__content {
   max-height: 500px;
   opacity: 1;
   transition: max-height 0.8s linear;
 }
 
-/* Стили для появляющейся ссылки */
+/* form */
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form__text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form__label {
+  line-height: 1;
+  background-color: #e7e7e5;
+  margin-bottom: 10px;
+}
+
+.form__input {
+  display: block;
+  width: 100%;
+  
+  margin-bottom: 10px;
+}
+
+input[name="bg-color"] {
+  height: 30px;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.form__content {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.form__item {
+  height: 50px;
+  flex-basis: 19.5%;
+  font-weight: 700;
+  background-color: #d10000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: dashed 1px #333;
+  cursor: pointer;
+}
+
+.form__item--texture {
+  background-color: #cc8282;
+}
+
+.form__item--texture:hover {
+  transform: translate(-60px, -23px) scale(2.2,2.2);
+  z-index: 5;
+}
+
+.form__item:nth-child(-n + 10 ) {
+  margin-bottom: 10px;
+}
+
+.form__texture {
+  display: block;
+  width: 100%;
+  height: 30px;
+  
+  cursor: pointer;
+  padding: 3px;
+  margin-bottom: 10px;
+}
+
+/* Стили для появляющейся ссылки кнопки Save*/
 #download__link {
   display: block;
   color: #333;
   height: 100%;
   width: 100%;
-}
-
-.instruction {
-  margin-top: 1rem;
-}
-
-.instruction__item {
-  margin-top: 0.5rem;
 }
 
 .footer__info {

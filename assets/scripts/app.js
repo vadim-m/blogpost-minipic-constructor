@@ -17,7 +17,6 @@ openButtons.forEach((btn) => {
   });
 });
 
-
 /* СЕКЦИЯ LAYOUT */
 /* --------------*/
 

@@ -14,6 +14,7 @@
 <body>
   <div class="wrapper">
     <main class="constructor container">
+
       <div class="preview">
         <div class="preview__scheme">
           <div class="scheme" id="scheme">
@@ -47,10 +48,10 @@
           </div>
         </div>
       </div>
-      
+
       <div class="sections">
 
-        <section class="layout section" id="layout">
+        <section class="section section--layout" id="layout">
           <div class="layout__header section__header">
             <h1 class="layout__heading section__heading">Layout Editor</h1>
             <div class="layout__open-btn section__open-btn"></div>
@@ -78,21 +79,82 @@
           </div>
         </section>
 
-        <section class="background section" id="background">
+        <section class="section section--background" id="background">
           <div class="background__header section__header">
             <h1 class="background__heading section__heading">Background Editor</h1>
             <div class="background__open-btn section__open-btn"></div>
           </div>
-          <div class="background__content section__content">Lorem Ipsum - это текст-"рыба", часто используемый в печати и
-            вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время
-            некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для
-            распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и
-            перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с
-            образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus
-            PageMaker, в шаблонах которых используется Lorem Ipsum.</div>
+          <div class="background__content section__content">
+
+            <div class="background__colors background__item">
+              <form class="form form-colors">
+                <div class="form__text">
+                  <label for="bg-color" class="form__label">Choose color:</label>
+                  <input type="color" value="#000" list="color-list" name="bg-color" id="bg-color" class="form__input">
+                  <datalist id="color-list">
+                    <option value="#00ffff">o</option>
+                    <option value="#ffffff">f</option>
+                    <option value="#ff00ff">f</option>
+                    <option value="#000000">f</option>
+                    <option value="#ffff00">g</option>
+                    <option value="#ffaa00">g</option>
+                  </datalist>
+                </div>
+                <div class="form__content">
+                  <div class="form__item">Html</div>
+                  <div class="form__item">CSS</div>
+                  <div class="form__item">JS</div>
+                  <div class="form__item">Vue</div>
+                  <div class="form__item">HTTP</div>
+                  <div class="form__item">WEB</div>
+                  <div class="form__item">Etc.</div>
+                  <div class="form__item">Etc.</div>
+                  <div class="form__item">Etc.</div>
+                  <div class="form__item">Node</div>
+                  <div class="form__item">Git</div>
+                  <div class="form__item">Terminal</div>
+                  <div class="form__item">Linux</div>
+                  <div class="form__item">MS</div>
+                  <div class="form__item">PHP</div>
+                </div>
+              </form>
+            </div>
+
+
+            <div class="background__textures background__item">
+              <form class="form form-textures">
+                <div class="form__text">
+                  <label for="bg-texture" class="form__label">Choose texture:</label>
+                  <select name="bg-texture" id="bg-texture" value="value3" class="form__texture"> 
+                    <option value="value1">Значение 1</option>
+                    <option value="value2">Значение 2</option>
+                    <option value="value3">Значение 3</option>
+                  </select>
+                </div>
+                <div class="form__content">
+                  <div class="form__item form__item--texture">Html</div>
+                  <div class="form__item form__item--texture">CSS</div>
+                  <div class="form__item form__item--texture">JS</div>
+                  <div class="form__item form__item--texture">Vue</div>
+                  <div class="form__item form__item--texture">HTTP</div>
+                  <div class="form__item form__item--texture">WEB</div>
+                  <div class="form__item form__item--texture">Etc.</div>
+                  <div class="form__item form__item--texture">Etc.</div>
+                  <div class="form__item form__item--texture">Etc.</div>
+                  <div class="form__item form__item--texture">Node</div>
+                  <div class="form__item form__item--texture">Git</div>
+                  <div class="form__item form__item--texture">Terminal</div>
+                  <div class="form__item form__item--texture">Linux</div>
+                  <div class="form__item form__item--texture">MS</div>
+                  <div class="form__item form__item--texture">PHP</div>
+                </div>
+              </form>
+            </div>
+
+          </div>
         </section>
 
-        <section class="text section" id="text">
+        <section class="section section--text" id="text">
 
           <div class="text__header section__header">
             <h1 class="text__heading section__heading">Text Editor</h1>
@@ -114,11 +176,10 @@
           </div>
         </section>
 
-      
-
       </div>
+      
     </main>
-    
+
   </div>
   <script src="./assets/scripts/html2canvas.js"></script>
   <script src="./assets/scripts/app.js"></script>
